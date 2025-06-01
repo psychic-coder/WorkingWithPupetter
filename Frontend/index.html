@@ -1,496 +1,541 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Harnessing Infographics for Effective Pinterest Marketing</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        :root {
-            --primary: #2c5f5f;
-            --primary-light: #3a7a7a;
-            --secondary: #f8f9fa;
-            --text: #333;
-            --text-light: #666;
-            --white: #fff;
-            --border: #e0e6e9;
-        }
+      :root {
+        --primary: #2c5f5f;
+        --primary-light: #3a7a7a;
+        --secondary: #f8f9fa;
+        --text: #333;
+        --text-light: #666;
+        --white: #fff;
+        --border: #e0e6e9;
+      }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f5f9fa;
-            color: var(--text);
-            line-height: 1.6;
-            padding: 40px 20px;
-        }
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: #f5f9fa;
+        color: var(--text);
+        line-height: 1.6;
+        padding: 40px 20px;
+      }
 
+      .infographic-container {
+        max-width: 850px;
+        margin: 0 auto;
+        background: var(--white);
+        border-radius: 16px;
+        padding: 50px;
+        box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .infographic-container::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 8px;
+        background: linear-gradient(90deg, var(--primary), #4a9d9d);
+      }
+
+      .main-title {
+        font-size: 2.8rem;
+        font-weight: 700;
+        color: var(--primary);
+        text-align: center;
+        margin-bottom: 50px;
+        position: relative;
+        padding-bottom: 20px;
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 0.6s ease-out 0.2s forwards;
+      }
+
+      .main-title::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 4px;
+        background: var(--primary);
+        border-radius: 2px;
+      }
+
+      .points-container {
+        position: relative;
+        padding-left: 70px;
+      }
+
+      .points-container::before {
+        content: "";
+        position: absolute;
+        left: 35px;
+        top: 10px;
+        bottom: 10px;
+        width: 4px;
+        background: linear-gradient(to bottom, var(--primary), #4a9d9d);
+        border-radius: 2px;
+        transform: scaleY(0);
+        transform-origin: top;
+        animation: growLine 1.2s ease-out 0.4s forwards;
+      }
+
+      .point-item {
+        position: relative;
+        margin-bottom: 35px;
+        padding-bottom: 35px;
+        border-bottom: 1px dashed var(--border);
+        opacity: 0;
+        transform: translateX(-20px);
+      }
+
+      .point-item:nth-child(1) {
+        animation: fadeInRight 0.6s ease-out 0.6s forwards;
+      }
+      .point-item:nth-child(2) {
+        animation: fadeInRight 0.6s ease-out 0.8s forwards;
+      }
+      .point-item:nth-child(3) {
+        animation: fadeInRight 0.6s ease-out 1s forwards;
+      }
+      .point-item:nth-child(4) {
+        animation: fadeInRight 0.6s ease-out 1.2s forwards;
+      }
+      .point-item:nth-child(5) {
+        animation: fadeInRight 0.6s ease-out 1.4s forwards;
+      }
+      .point-item:nth-child(6) {
+        animation: fadeInRight 0.6s ease-out 1.6s forwards;
+      }
+      .point-item:nth-child(7) {
+        animation: fadeInRight 0.6s ease-out 1.8s forwards;
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border-bottom: none;
+      }
+
+      .number-circle {
+        position: absolute;
+        left: -60px;
+        top: 0;
+        width: 50px;
+        height: 50px;
+        background: var(--primary);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: var(--white);
+        box-shadow: 0 5px 15px rgba(44, 95, 95, 0.3);
+        transition: all 0.3s ease;
+      }
+
+      .point-item:hover .number-circle {
+        background: var(--primary-light);
+        transform: scale(1.1) rotate(10deg);
+        box-shadow: 0 8px 20px rgba(44, 95, 95, 0.4);
+      }
+
+      .point-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--primary);
+        margin-bottom: 12px;
+        transition: all 0.3s ease;
+      }
+
+      .point-item:hover .point-title {
+        color: var(--primary-light);
+      }
+
+      .point-text {
+        font-size: 1.05rem;
+        color: var(--text-light);
+        line-height: 1.7;
+      }
+
+      .screenshot-section {
+        margin-top: 50px;
+        text-align: center;
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 0.6s ease-out 2s forwards;
+      }
+
+      .screenshot-btn {
+        background: var(--primary);
+        color: var(--white);
+        border: none;
+        padding: 15px 40px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(44, 95, 95, 0.3);
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .screenshot-btn:hover {
+        background: var(--primary-light);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(44, 95, 95, 0.4);
+      }
+
+      .screenshot-btn:active {
+        transform: translateY(0);
+      }
+
+      .loading-spinner {
+        display: none;
+        margin-left: 10px;
+        width: 20px;
+        height: 20px;
+        border: 3px solid rgba(255, 255, 255, 0.3);
+        border-top-color: var(--white);
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+
+      .error-message,
+      .success-message {
+        display: none;
+        padding: 15px;
+        border-radius: 8px;
+        margin-top: 20px;
+        font-weight: 500;
+        animation: fadeIn 0.4s ease-out;
+      }
+
+      .error-message {
+        background: #ff6b6b;
+        color: var(--white);
+      }
+
+      .success-message {
+        background: #51cf66;
+        color: var(--white);
+      }
+
+      /* Animations */
+      @keyframes fadeInUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeInRight {
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes growLine {
+        to {
+          transform: scaleY(1);
+        }
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
         .infographic-container {
-            max-width: 850px;
-            margin: 0 auto;
-            background: var(--white);
-            border-radius: 16px;
-            padding: 50px;
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .infographic-container::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 8px;
-            background: linear-gradient(90deg, var(--primary), #4a9d9d);
+          padding: 40px 30px;
         }
 
         .main-title {
-            font-size: 2.8rem;
-            font-weight: 700;
-            color: var(--primary);
-            text-align: center;
-            margin-bottom: 50px;
-            position: relative;
-            padding-bottom: 20px;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.6s ease-out 0.2s forwards;
-        }
-
-        .main-title::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background: var(--primary);
-            border-radius: 2px;
+          font-size: 2.2rem;
+          margin-bottom: 40px;
         }
 
         .points-container {
-            position: relative;
-            padding-left: 70px;
+          padding-left: 60px;
         }
 
         .points-container::before {
-            content: "";
-            position: absolute;
-            left: 35px;
-            top: 10px;
-            bottom: 10px;
-            width: 4px;
-            background: linear-gradient(to bottom, var(--primary), #4a9d9d);
-            border-radius: 2px;
-            transform: scaleY(0);
-            transform-origin: top;
-            animation: growLine 1.2s ease-out 0.4s forwards;
-        }
-
-        .point-item {
-            position: relative;
-            margin-bottom: 35px;
-            padding-bottom: 35px;
-            border-bottom: 1px dashed var(--border);
-            opacity: 0;
-            transform: translateX(-20px);
-        }
-
-        .point-item:nth-child(1) { animation: fadeInRight 0.6s ease-out 0.6s forwards; }
-        .point-item:nth-child(2) { animation: fadeInRight 0.6s ease-out 0.8s forwards; }
-        .point-item:nth-child(3) { animation: fadeInRight 0.6s ease-out 1.0s forwards; }
-        .point-item:nth-child(4) { animation: fadeInRight 0.6s ease-out 1.2s forwards; }
-        .point-item:nth-child(5) { animation: fadeInRight 0.6s ease-out 1.4s forwards; }
-        .point-item:nth-child(6) { animation: fadeInRight 0.6s ease-out 1.6s forwards; }
-        .point-item:nth-child(7) { 
-            animation: fadeInRight 0.6s ease-out 1.8s forwards;
-            margin-bottom: 0;
-            padding-bottom: 0;
-            border-bottom: none;
+          left: 30px;
         }
 
         .number-circle {
-            position: absolute;
-            left: -60px;
-            top: 0;
-            width: 50px;
-            height: 50px;
-            background: var(--primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--white);
-            box-shadow: 0 5px 15px rgba(44, 95, 95, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .point-item:hover .number-circle {
-            background: var(--primary-light);
-            transform: scale(1.1) rotate(10deg);
-            box-shadow: 0 8px 20px rgba(44, 95, 95, 0.4);
+          left: -50px;
+          width: 40px;
+          height: 40px;
+          font-size: 1.2rem;
         }
 
         .point-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--primary);
-            margin-bottom: 12px;
-            transition: all 0.3s ease;
-        }
-
-        .point-item:hover .point-title {
-            color: var(--primary-light);
+          font-size: 1.3rem;
         }
 
         .point-text {
-            font-size: 1.05rem;
-            color: var(--text-light);
-            line-height: 1.7;
+          font-size: 1rem;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .infographic-container {
+          padding: 30px 20px;
+          border-radius: 12px;
         }
 
-        .screenshot-section {
-            margin-top: 50px;
-            text-align: center;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.6s ease-out 2.0s forwards;
+        .main-title {
+          font-size: 1.8rem;
+          padding-bottom: 15px;
+        }
+
+        .points-container {
+          padding-left: 50px;
+        }
+
+        .points-container::before {
+          left: 25px;
+        }
+
+        .number-circle {
+          left: -40px;
+          width: 32px;
+          height: 32px;
+          font-size: 1rem;
+        }
+
+        .point-item {
+          margin-bottom: 25px;
+          padding-bottom: 25px;
+        }
+
+        .point-title {
+          font-size: 1.1rem;
+          margin-bottom: 8px;
+        }
+
+        .point-text {
+          font-size: 0.9rem;
         }
 
         .screenshot-btn {
-            background: var(--primary);
-            color: var(--white);
-            border: none;
-            padding: 15px 40px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(44, 95, 95, 0.3);
-            display: inline-flex;
-            align-items: center;
+          padding: 12px 30px;
+          font-size: 1rem;
         }
-
-        .screenshot-btn:hover {
-            background: var(--primary-light);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(44, 95, 95, 0.4);
-        }
-
-        .screenshot-btn:active {
-            transform: translateY(0);
-        }
-
-        .loading-spinner {
-            display: none;
-            margin-left: 10px;
-            width: 20px;
-            height: 20px;
-            border: 3px solid rgba(255, 255, 255, 0.3);
-            border-top-color: var(--white);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        .error-message, .success-message {
-            display: none;
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 20px;
-            font-weight: 500;
-            animation: fadeIn 0.4s ease-out;
-        }
-
-        .error-message {
-            background: #ff6b6b;
-            color: var(--white);
-        }
-
-        .success-message {
-            background: #51cf66;
-            color: var(--white);
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInRight {
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes growLine {
-            to {
-                transform: scaleY(1);
-            }
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .infographic-container {
-                padding: 40px 30px;
-            }
-
-            .main-title {
-                font-size: 2.2rem;
-                margin-bottom: 40px;
-            }
-
-            .points-container {
-                padding-left: 60px;
-            }
-
-            .points-container::before {
-                left: 30px;
-            }
-
-            .number-circle {
-                left: -50px;
-                width: 40px;
-                height: 40px;
-                font-size: 1.2rem;
-            }
-
-            .point-title {
-                font-size: 1.3rem;
-            }
-
-            .point-text {
-                font-size: 1rem;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .infographic-container {
-                padding: 30px 20px;
-                border-radius: 12px;
-            }
-
-            .main-title {
-                font-size: 1.8rem;
-                padding-bottom: 15px;
-            }
-
-            .points-container {
-                padding-left: 50px;
-            }
-
-            .points-container::before {
-                left: 25px;
-            }
-
-            .number-circle {
-                left: -40px;
-                width: 32px;
-                height: 32px;
-                font-size: 1rem;
-            }
-
-            .point-item {
-                margin-bottom: 25px;
-                padding-bottom: 25px;
-            }
-
-            .point-title {
-                font-size: 1.1rem;
-                margin-bottom: 8px;
-            }
-
-            .point-text {
-                font-size: 0.9rem;
-            }
-
-            .screenshot-btn {
-                padding: 12px 30px;
-                font-size: 1rem;
-            }
-        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="infographic-container" id="infographic">
-        <h1 class="main-title">
-            Harnessing Infographics for Effective Pinterest Marketing
-        </h1>
+      <h1 class="main-title">
+        Harnessing Infographics for Effective Pinterest Marketing
+      </h1>
 
-        <div class="points-container">
-            <div class="point-item">
-                <div class="number-circle">1</div>
-                <h3 class="point-title">Simplifying Complex Information</h3>
-                <p class="point-text">
-                    Infographics simplify complex data and concepts into digestible
-                    visual formats. This is particularly useful for e-commerce brands or
-                    service providers looking to explain products or services quickly.
-                </p>
-            </div>
-
-            <div class="point-item">
-                <div class="number-circle">2</div>
-                <h3 class="point-title">Encouraging Shares and Saves</h3>
-                <p class="point-text">
-                    Infographics are highly shareable content; they encourage users to
-                    save, pin, or share them due to their informative nature. This can
-                    lead to organic reach and visibility on Pinterest.
-                </p>
-            </div>
-
-            <div class="point-item">
-                <div class="number-circle">3</div>
-                <h3 class="point-title">Leveraging SEO Benefits</h3>
-                <p class="point-text">
-                    When properly tagged with keywords and descriptions, infographics can
-                    enhance SEO on Pinterest. This can improve discoverability, making it
-                    easier for users interested in specific topics to find your pins.
-                </p>
-            </div>
-
-            <div class="point-item">
-                <div class="number-circle">4</div>
-                <h3 class="point-title">Enhancing Visual Appeal</h3>
-                <p class="point-text">
-                    Infographics leverage visually appealing designs, which can capture
-                    users' attention quickly on Pinterest's image-centric platform. This
-                    visual aspect can lead to increased engagement and higher pin rates.
-                </p>
-            </div>
-
-            <div class="point-item">
-                <div class="number-circle">5</div>
-                <h3 class="point-title">Boosting Brand Awareness</h3>
-                <p class="point-text">
-                    Consistent use of infographics helps in building brand identity. By
-                    using specific colors, fonts, and styles, brands can create a
-                    distinct visual language that resonates with users and enhances
-                    recall.
-                </p>
-            </div>
-
-            <div class="point-item">
-                <div class="number-circle">6</div>
-                <h3 class="point-title">Driving Traffic to Websites</h3>
-                <p class="point-text">
-                    Infographics can include call-to-actions (CTAs) linking back to your
-                    website or landing page, facilitating the conversion of Pinterest
-                    users into website visitors, thus driving traffic effectively.
-                </p>
-            </div>
-
-            <div class="point-item">
-                <div class="number-circle">7</div>
-                <h3 class="point-title">Creating Educational Content</h3>
-                <p class="point-text">
-                    Infographics can serve as educational tools or tutorials, providing
-                    value to your audience. This type of informative content can
-                    establish authority in your niche and attract a loyal following.
-                </p>
-            </div>
+      <div class="points-container">
+        <div class="point-item">
+          <div class="number-circle">1</div>
+          <h3 class="point-title">Simplifying Complex Information</h3>
+          <p class="point-text">
+            Infographics simplify complex data and concepts into digestible
+            visual formats. This is particularly useful for e-commerce brands or
+            service providers looking to explain products or services quickly.
+          </p>
         </div>
 
-        <div class="screenshot-section">
-            <button class="screenshot-btn" id="takeScreenshot">
-                Take Screenshot
-                <span class="loading-spinner" id="loadingSpinner"></span>
-            </button>
-            <div class="error-message" id="errorMessage"></div>
-            <div class="success-message" id="successMessage"></div>
+        <div class="point-item">
+          <div class="number-circle">2</div>
+          <h3 class="point-title">Encouraging Shares and Saves</h3>
+          <p class="point-text">
+            Infographics are highly shareable content; they encourage users to
+            save, pin, or share them due to their informative nature. This can
+            lead to organic reach and visibility on Pinterest.
+          </p>
         </div>
+
+        <div class="point-item">
+          <div class="number-circle">3</div>
+          <h3 class="point-title">Leveraging SEO Benefits</h3>
+          <p class="point-text">
+            When properly tagged with keywords and descriptions, infographics
+            can enhance SEO on Pinterest. This can improve discoverability,
+            making it easier for users interested in specific topics to find
+            your pins.
+          </p>
+        </div>
+
+        <div class="point-item">
+          <div class="number-circle">4</div>
+          <h3 class="point-title">Enhancing Visual Appeal</h3>
+          <p class="point-text">
+            Infographics leverage visually appealing designs, which can capture
+            users' attention quickly on Pinterest's image-centric platform. This
+            visual aspect can lead to increased engagement and higher pin rates.
+          </p>
+        </div>
+
+        <div class="point-item">
+          <div class="number-circle">5</div>
+          <h3 class="point-title">Boosting Brand Awareness</h3>
+          <p class="point-text">
+            Consistent use of infographics helps in building brand identity. By
+            using specific colors, fonts, and styles, brands can create a
+            distinct visual language that resonates with users and enhances
+            recall.
+          </p>
+        </div>
+
+        <div class="point-item">
+          <div class="number-circle">6</div>
+          <h3 class="point-title">Driving Traffic to Websites</h3>
+          <p class="point-text">
+            Infographics can include call-to-actions (CTAs) linking back to your
+            website or landing page, facilitating the conversion of Pinterest
+            users into website visitors, thus driving traffic effectively.
+          </p>
+        </div>
+
+        <div class="point-item">
+          <div class="number-circle">7</div>
+          <h3 class="point-title">Creating Educational Content</h3>
+          <p class="point-text">
+            Infographics can serve as educational tools or tutorials, providing
+            value to your audience. This type of informative content can
+            establish authority in your niche and attract a loyal following.
+          </p>
+        </div>
+      </div>
+
+      <div class="screenshot-section">
+        <button class="screenshot-btn" id="takeScreenshot">
+          Take Screenshot
+          <span class="loading-spinner" id="loadingSpinner"></span>
+        </button>
+        <div class="error-message" id="errorMessage"></div>
+        <div class="success-message" id="successMessage"></div>
+      </div>
     </div>
 
     <script>
-        document.getElementById("takeScreenshot").addEventListener("click", async function () {
+       
+        const API_BASE_URL = "http://localhost:3000"; 
+      
+        document
+          .getElementById("takeScreenshot")
+          .addEventListener("click", async function () {
             const button = this;
             const spinner = document.getElementById("loadingSpinner");
             const errorMessage = document.getElementById("errorMessage");
             const successMessage = document.getElementById("successMessage");
-
-            // Reset messages
+      
+            
             errorMessage.style.display = "none";
             successMessage.style.display = "none";
-
-            // Show loading state
+      
+            
             button.innerHTML = "Taking Screenshot ";
             const spinnerClone = spinner.cloneNode(true);
             spinnerClone.style.display = "inline-block";
             button.appendChild(spinnerClone);
             button.disabled = true;
-
+      
             try {
-                await captureWithHtml2Canvas();
-                successMessage.textContent = "Screenshot downloaded successfully!";
-                successMessage.style.display = "block";
+              
+              const styles = Array.from(document.querySelectorAll('style, link[rel="stylesheet"]'))
+                .map(el => el.outerHTML)
+                .join('\n');
+              
+              
+              const payload = {
+                html: document.documentElement.outerHTML,
+                css: styles,
+                width: document.documentElement.scrollWidth,
+                height: document.documentElement.scrollHeight,
+                fullPage: true
+              };
+      
+              
+              const response = await fetch(`${API_BASE_URL}/api/screenshot-current`, {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify(payload)
+              });
+      
+              if (!response.ok) {
+                const errorData = await response.json().catch(() => ({}));
+                throw new Error(errorData.message || `HTTP error! status: ${response.status}`);
+              }
+      
+              
+              const blob = await response.blob();
+              const url = URL.createObjectURL(blob);
+              
+              
+              const a = document.createElement('a');
+              a.href = url;
+              a.download = `pinterest-infographic-${new Date().getTime()}.png`;
+              document.body.appendChild(a);
+              a.click();
+              document.body.removeChild(a);
+              URL.revokeObjectURL(url);
+      
+              successMessage.textContent = "Screenshot downloaded successfully!";
+              successMessage.style.display = "block";
             } catch (error) {
-                console.error("Screenshot error:", error);
-                errorMessage.textContent = "Failed to take screenshot: " + error.message;
-                errorMessage.style.display = "block";
+              console.error("Screenshot error:", error);
+              errorMessage.textContent = "Failed to take screenshot: " + error.message;
+              errorMessage.style.display = "block";
             } finally {
-                button.innerHTML = "Take Screenshot";
-                button.appendChild(spinner);
-                button.disabled = false;
-                spinner.style.display = "none";
+              button.innerHTML = "Take Screenshot";
+              button.appendChild(spinner);
+              button.disabled = false;
+              spinner.style.display = "none";
             }
+          });
+      
+        
+        window.addEventListener("load", async () => {
+          try {
+            const response = await fetch(`${API_BASE_URL}/health`);
+            if (!response.ok) {
+              console.warn("Backend health check failed");
+            }
+          } catch (error) {
+            console.warn("Backend not accessible:", error);
+          }
         });
-
-        async function captureWithHtml2Canvas() {
-            await loadScript('https://html2canvas.hertzen.com/dist/html2canvas.min.js');
-            
-            const element = document.getElementById("infographic");
-            const canvas = await html2canvas(element, {
-                scale: 2,
-                logging: false,
-                useCORS: true,
-                allowTaint: true,
-                scrollY: -window.scrollY
-            });
-            
-            const image = canvas.toDataURL("image/png");
-            downloadImage(image, "pinterest-infographic.png");
-        }
-
-        function downloadImage(url, filename) {
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = filename;
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-        }
-
-        function loadScript(src) {
-            return new Promise((resolve, reject) => {
-                const script = document.createElement('script');
-                script.src = src;
-                script.onload = resolve;
-                script.onerror = reject;
-                document.head.appendChild(script);
-            });
-        }
-    </script>
-</body>
+      </script>
+  </body>
 </html>
